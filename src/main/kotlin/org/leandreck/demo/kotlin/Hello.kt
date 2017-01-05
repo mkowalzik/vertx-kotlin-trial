@@ -103,7 +103,7 @@ class TimerVerticle : AbstractVerticle() {
 
     fun sendMessage() {
         val eventBus = vertx.eventBus()
-        val requestMessage = RequestMessage(msgId = UUID.randomUUID().toString(), host = "www.golem.de", port = 80, uri = "/")
+        val requestMessage = RequestMessage(msgId = "Kotlin-${UUID.randomUUID()}", host = "www.golem.de", port = 80, uri = "/")
         println(requestMessage)
         eventBus.send("send.request", requestMessage, DeliveryOptions().setCodecName("RequestMessageCodec"))
     }
